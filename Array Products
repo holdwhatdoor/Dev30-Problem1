@@ -1,0 +1,26 @@
+// Problem solving
+// find the pair of numbers in the array that produce the 
+// highest product and return that product
+
+// test array
+var array1 = [1, 3, 5, 8];
+// empty array to hold products from test array
+var productsArray = [];
+
+// function with parameter of an array that loops through and finds product of adjacent array items and returns the greatest product
+var findGreatestAdjacentProduct = function(array){
+  for(let i = 0; i < array.length; i++){
+    var currentNum = array[i];
+    var nextNum = array[i+1];
+    var product = currentNum * nextNum;
+    
+    // If product is a number it is pushed to the product array
+    if(product){
+      productsArray.push(product);
+    }
+  }
+  // finds the greatest product from the product array
+  var greatestProduct = Math.max(...productsArray);
+  return greatestProduct;
+}
+console.log(`Greatest Product: ${findGreatestAdjacentProduct(array1)}`);
